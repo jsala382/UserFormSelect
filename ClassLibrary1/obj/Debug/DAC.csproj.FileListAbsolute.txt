@@ -1,0 +1,11 @@
+C:\bootcamp\UserForms\ClassLibrary1\bin\Debug\BE.dll
+C:\bootcamp\UserForms\ClassLibrary1\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\bootcamp\UserForms\ClassLibrary1\bin\Debug\BE.pdb
+C:\bootcamp\UserForms\ClassLibrary1\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\bootcamp\UserForms\ClassLibrary1\obj\Debug\DAC.csproj.AssemblyReference.cache
+C:\bootcamp\UserForms\ClassLibrary1\obj\Debug\DAC.csproj.CoreCompileInputs.cache
+C:\bootcamp\UserForms\ClassLibrary1\obj\Debug\DAC.csproj.Up2Date
+C:\bootcamp\UserForms\ClassLibrary1\bin\Debug\DAC.dll
+C:\bootcamp\UserForms\ClassLibrary1\bin\Debug\DAC.pdb
+C:\bootcamp\UserForms\ClassLibrary1\obj\Debug\DAC.dll
+C:\bootcamp\UserForms\ClassLibrary1\obj\Debug\DAC.pdb

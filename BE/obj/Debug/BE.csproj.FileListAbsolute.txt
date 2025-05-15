@@ -1,0 +1,6 @@
+C:\bootcamp\UserForms\BE\bin\Debug\BE.dll
+C:\bootcamp\UserForms\BE\bin\Debug\BE.pdb
+C:\bootcamp\UserForms\BE\obj\Debug\BE.csproj.AssemblyReference.cache
+C:\bootcamp\UserForms\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+C:\bootcamp\UserForms\BE\obj\Debug\BE.dll
+C:\bootcamp\UserForms\BE\obj\Debug\BE.pdb

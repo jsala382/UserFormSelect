@@ -1,0 +1,11 @@
+C:\bootcamp\UserForms\BL\bin\Debug\BL.dll
+C:\bootcamp\UserForms\BL\bin\Debug\BL.pdb
+C:\bootcamp\UserForms\BL\bin\Debug\BE.dll
+C:\bootcamp\UserForms\BL\bin\Debug\BE.pdb
+C:\bootcamp\UserForms\BL\obj\Debug\BL.csproj.AssemblyReference.cache
+C:\bootcamp\UserForms\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\bootcamp\UserForms\BL\obj\Debug\BL.csproj.Up2Date
+C:\bootcamp\UserForms\BL\obj\Debug\BL.dll
+C:\bootcamp\UserForms\BL\obj\Debug\BL.pdb
+C:\bootcamp\UserForms\BL\bin\Debug\DAC.dll
+C:\bootcamp\UserForms\BL\bin\Debug\DAC.pdb
