@@ -19,5 +19,15 @@ namespace BL.Servicio
         {
             return _userRepository.ObtenerUsuarios();
         }
+
+        public Usuario CrearUsuario(Usuario user)
+        {
+            return _userRepository.CrearUsuario(user);
+        }
+
+        public Usuario ActualizarUsuario(Usuario user)
+        {
+            return _userRepository.ActualizarUsuario(user);
+        }
     }
 }

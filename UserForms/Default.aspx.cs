@@ -4,6 +4,8 @@ using System.Web.UI;
 using BE.Modelo;
 using DAC.Repositorio;
 using BL.Servicio;
+using System.Web.UI.WebControls;
+using System.Linq;
 
 namespace UserForms
 {
@@ -27,6 +29,64 @@ namespace UserForms
             List<Usuario> listUser = _usuarioService.ObtenerUsuarios();
             gvUsuarios.DataSource = listUser;
             gvUsuarios.DataBind();
+        }
+
+       protected void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Usuario User = new Usuario
+                {
+                    Nombre = txtNombre.Text.Trim(),
+                    Direccion = txtDireccion.Text.Trim(),
+                    Telefono = txtTelefono.Text.Trim(),
+                };
+                Usuario UserCreated = CreateUser(User);
+                CargarUsuarios();
+                lblMensaje.Text = $"Usuario creado con el ID: {UserCreated.Id}";
+            }catch(Exception ex)
+            {
+                lblMensaje.Text = $"Error al crear el Usuario" + ex.Message;
+            }
+           
+        }
+
+        protected void EditingUser(object sender, GridViewEditEventArgs e)
+        {
+            gvUsuarios.EditIndex = e.NewEditIndex;
+            CargarUsuarios();
+        }
+        protected void UpdatingUser(object sender,GridViewUpdateEventArgs e)
+        {
+
+            int id = Convert.ToInt32(gvUsuarios.DataKeys[e.RowIndex].Value);
+            GridViewRow row = gvUsuarios.Rows[e.RowIndex];
+            string nombre = ((TextBox)row.FindControl("txtNombreEdit")).Text;
+            string direcccion = ((TextBox)row.FindControl("txtDireccionEdit")).Text;
+            string Telefono = ((TextBox)row.FindControl("txtTelefonoEdit")).Text;
+
+            Usuario userActualized = new Usuario
+            {
+                Id = id,
+                Nombre = nombre,
+                Direccion = direcccion,
+                Telefono = Telefono
+            };
+            _usuarioService.ActualizarUsuario(userActualized);
+            gvUsuarios.EditIndex = -1;
+            CargarUsuarios();
+        }
+
+        protected void CancellingEditionUser(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvUsuarios.EditIndex = -1;
+            CargarUsuarios(); 
+        }
+
+
+        private Usuario CreateUser(Usuario user)
+        {
+            return _usuarioService.CrearUsuario(user);
         }
     }
 }
