@@ -12,6 +12,7 @@ namespace DAC.Repositorio
         List<Usuario> ObtenerUsuarios();
         Usuario CrearUsuario(Usuario user);
         Usuario ActualizarUsuario(Usuario user);
+        void BorrarUsuario(int id);
 
     }
 }

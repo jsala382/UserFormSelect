@@ -88,5 +88,20 @@ namespace DAC.Repositorio
                 return user;
             }
         }
+
+        public void BorrarUsuario(int id)
+        {
+            using (SqlConnection connectionUserDelete = new
+                SqlConnection(connectionString))
+            {
+                SqlCommand commandDeleteUser = new SqlCommand("sp_DeleteUser", connectionUserDelete);
+                commandDeleteUser.CommandType = CommandType.StoredProcedure;
+                commandDeleteUser.Parameters.AddWithValue("@Id", id);
+                connectionUserDelete.Open();
+                commandDeleteUser.ExecuteNonQuery();
+
+
+            }
+        }
     }
 }

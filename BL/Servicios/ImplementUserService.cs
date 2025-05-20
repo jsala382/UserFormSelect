@@ -29,5 +29,10 @@ namespace BL.Servicio
         {
             return _userRepository.ActualizarUsuario(user);
         }
+
+        public void BorrarUsuario(int id)
+        {
+            _userRepository.BorrarUsuario(id);
+        }
     }
 }

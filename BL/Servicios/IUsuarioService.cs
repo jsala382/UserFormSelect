@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using System.ComponentModel;
 using BE.Modelo;
 
 namespace BL.Servicio
@@ -10,5 +11,6 @@ namespace BL.Servicio
         Usuario CrearUsuario(Usuario usuario);
 
         Usuario ActualizarUsuario(Usuario usuario);
+        void BorrarUsuario(int id);
     }
 }

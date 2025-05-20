@@ -38,7 +38,8 @@
         DataKeyNames="Id"
         OnRowEditing="EditingUser"
         OnRowCancelingEdit="CancellingEditionUser"
-        OnRowUpdating="UpdatingUser">
+        OnRowUpdating="UpdatingUser"
+        OnRowDeleting="DeleteUser">
         <Columns>
             <asp:BoundField DataField="Id" HeaderText="id" ReadOnly="true" />
             <asp:TemplateField HeaderText="nombre" SortExpression="Nombre">
@@ -49,6 +50,7 @@
                     <asp:TextBox ID="txtNombreEdit" runat="server" Text='<%# Bind("Nombre") %>'></asp:TextBox>
                 </EditItemTemplate>
             </asp:TemplateField>
+            
 
             <asp:TemplateField HeaderText="direccion" SortExpression="Direccion">
                 <ItemTemplate>
@@ -70,15 +72,21 @@
                 </EditItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField>
-                <ItemTemplate>
-                    <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Edit" Text="Editar" CausesValidation="false"></asp:LinkButton>
-                </ItemTemplate>
-                <EditItemTemplate>
-                    <asp:LinkButton ID="lnkUpdate" runat="server" CommandName="Update" Text="Actualizar" CausesValidation="false"></asp:LinkButton>
-                    <asp:LinkButton ID="lnkCancel" runat="server" CommandName="Cancel" Text="Cancelar" CausesValidation="false"></asp:LinkButton>
-                </EditItemTemplate>
-            </asp:TemplateField>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Edit" Text="Editar" CausesValidation="false"></asp:LinkButton>
+                        <asp:LinkButton ID="lnkDelete"
+                            CommandName="Delete" Text="Eliminar"
+                            runat="server"
+                            OnClientClick="return confirm ('Esta seguro que desea elimnar este registro?');"
+                            CausesValidation="false">
+                        </asp:LinkButton>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:LinkButton ID="lnkUpdate" runat="server" CommandName="Update" Text="Actualizar" CausesValidation="false"></asp:LinkButton>
+                        <asp:LinkButton ID="lnkCancel" runat="server" CommandName="Cancel" Text="Cancelar" CausesValidation="false"></asp:LinkButton>
+                    </EditItemTemplate>
+                </asp:TemplateField>
         </Columns>
     </asp:GridView>
 </asp:Content>

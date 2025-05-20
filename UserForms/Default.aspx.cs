@@ -83,6 +83,13 @@ namespace UserForms
             CargarUsuarios(); 
         }
 
+        protected void DeleteUser(object sender, GridViewDeleteEventArgs e)
+        {
+            int id = Convert.ToInt32(gvUsuarios.DataKeys[e.RowIndex].Value);
+            _usuarioService.BorrarUsuario(id);
+            CargarUsuarios();
+        }
+
 
         private Usuario CreateUser(Usuario user)
         {
