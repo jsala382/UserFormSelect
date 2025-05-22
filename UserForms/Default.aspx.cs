@@ -6,6 +6,7 @@ using DAC.Repositorio;
 using BL.Servicio;
 using System.Web.UI.WebControls;
 using System.Linq;
+using System.Text;
 
 namespace UserForms
 {
@@ -90,6 +91,20 @@ namespace UserForms
             CargarUsuarios();
         }
 
+        protected void btnDownload_Click(object sender, EventArgs e)
+        {
+            List<Usuario> userList = _usuarioService.ObtenerUsuarios();
+            StringBuilder sb = new StringBuilder();
+            foreach(var user in userList)
+            {
+                sb.AppendLine($"{user.Id}\t{user.Nombre}\t{user.Direccion}\t{user.Telefono}");
+            }
+            Response.Clear();
+            Response.ContentType = "text/plain";
+            Response.AddHeader("Content-Disposition", "attachment; filename=usuario.txt");
+            Response.Write(sb.ToString());
+            Response.End();
+        }
 
         private Usuario CreateUser(Usuario user)
         {

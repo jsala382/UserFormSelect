@@ -27,6 +27,10 @@
     <br />
     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnSave_Click"
         ValidationGroup="CrearUsuario" />
+    <br />
+    <br />
+    <asp:Button ID="btnDescargar" runat="server" Text="Descargar" OnClick="btnDownload_Click"/>
+    <br />
 </asp:Content>
 
 
