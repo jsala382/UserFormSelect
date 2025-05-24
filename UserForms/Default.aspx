@@ -29,7 +29,10 @@
         ValidationGroup="CrearUsuario" />
     <br />
     <br />
-    <asp:Button ID="btnDescargar" runat="server" Text="Descargar" OnClick="btnDownload_Click"/>
+    <asp:Button ID="btnDescargar" runat="server" Text="DescargarTxt" OnClick="btnDownload_Click"/>
+    <br />
+    <asp:Button ID="btnDescargarXls" runat="server" Text="DescargarXls" 
+                OnClick="btnDownloadXls" />
     <br />
 </asp:Content>
 

@@ -7,6 +7,7 @@ using BL.Servicio;
 using System.Web.UI.WebControls;
 using System.Linq;
 using System.Text;
+using OfficeOpenXml;
 
 namespace UserForms
 {
@@ -104,6 +105,34 @@ namespace UserForms
             Response.AddHeader("Content-Disposition", "attachment; filename=usuario.txt");
             Response.Write(sb.ToString());
             Response.End();
+        }
+
+        protected void btnDownloadXls(object sender, EventArgs e)
+        {
+            List<Usuario> userList = _usuarioService.ObtenerUsuarios();
+            using (var package = new OfficeOpenXml.ExcelPackage())
+            {
+                var workSheet = package.Workbook.Worksheets.Add("Usuarios");
+                workSheet.Cells[1, 1].Value = "ID";
+                workSheet.Cells[1, 2].Value = "Nombre";
+                workSheet.Cells[1, 3].Value = "Direccion";
+                workSheet.Cells[1, 4].Value = "Telefono";
+
+                int row = 2;
+                foreach (var users in userList){
+                    workSheet.Cells[row, 1].Value = users.Id;
+                    workSheet.Cells[row, 2].Value = users.Nombre;
+                    workSheet.Cells[row, 3].Value = users.Direccion;
+                    workSheet.Cells[row, 4].Value = users.Telefono;
+                    row++;
+                }
+                workSheet.Cells[workSheet.Dimension.Address].AutoFitColumns();
+                Response.Clear();
+                Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                Response.AddHeader("content-disposition","attachement; filename= Usuarios.xls");
+                Response.BinaryWrite(package.GetAsByteArray());
+                Response.End();
+            }
         }
 
         private Usuario CreateUser(Usuario user)
